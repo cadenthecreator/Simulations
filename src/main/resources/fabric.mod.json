@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "simulations",
+  "version": "${version}",
+  "name": "Simulations",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/deck/Simulations"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/simulations/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.cadencoaster.simulations.client.SimulationsClient"
+    ],
+    "main": [
+      "org.cadencoaster.simulations.Simulations"
+    ]
+  },
+  "mixins": [
+    "simulations.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "computercraft": "*"
+  }
+}
