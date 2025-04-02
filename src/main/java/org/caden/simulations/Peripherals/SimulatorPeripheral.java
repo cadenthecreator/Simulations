@@ -42,7 +42,7 @@ public class SimulatorPeripheral implements IPeripheral {
 
     private Map<String, Object> serializeBlockState(@NotNull BlockState state) {
         Map<String, Object> out = new HashMap<>();
-        out.put("name",state.getBlock().getName());
+        out.put("name",state.getBlock().getName().toString());
         out.put("id",Registries.BLOCK.getId(state.getBlock()).toString());
         for (Property<?> property : state.getProperties()) {
             Comparable<?> value = state.get(property);
