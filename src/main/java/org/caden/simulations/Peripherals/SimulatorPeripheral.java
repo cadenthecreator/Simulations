@@ -81,6 +81,24 @@ public class SimulatorPeripheral implements IPeripheral {
         return MethodResult.of(false);
     }
 
+    @LuaFunction
+    public final MethodResult setBlocks(int x1,int y1,int z1,int x2,int y2,int z2, String block) {
+        if (Identifier.tryParse(block) != null) {
+            Optional<Block> newblock = Registries.BLOCK.getOrEmpty(Identifier.tryParse(block));
+            if (newblock.isPresent()) {
+                for (int x = x1; x <= x2; x++) {
+                    for (int y = y1; y <= y2; y++) {
+                        for (int z = z1; z <= z2; z++) {
+                            simulator.worldHandle.asWorld().setBlockState(new BlockPos(x, y, z), newblock.get().getDefaultState());
+                        }
+                    }
+                }
+                return MethodResult.of(true);
+            }
+        }
+        return MethodResult.of(false);
+    }
+
     @Override
     public void attach(IComputerAccess computer) {
         IPeripheral.super.attach(computer);
