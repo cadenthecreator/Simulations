@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "simulations:block/simulator" }
+  }
+}
